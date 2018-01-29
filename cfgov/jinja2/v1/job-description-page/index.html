@@ -51,11 +51,9 @@
                 ${{ '{:,.0f}'.format( page.salary_min ) }}–${{ '{:,.0f}'.format( page.salary_max ) }}
                 <a class="a-link
                           a-link__icon
-                          cf-icon
-                          cf-icon__after
-                          cf-icon-download
                           pay-grade-link"
                    href="https://files.consumerfinance.gov/f/documents/cfpb_pay_scales.pdf">
+                    {{ svg_icon('download') }}
                     <span class="a-link_text">See information on grades and base pay ranges</span>
                 </a>
             </dd>
@@ -122,12 +120,11 @@
             <a class="o-expandable_target o-expandable_link" title="Expand content">
                 <span class="o-expandable_cue o-expandable_cue-open">
                     Read full description
-                    <span class="cf-icon cf-icon-plus-round"></span>
+                    {{ svg_icon('plus-round') }}
                </span>
                 <span class="o-expandable_cue o-expandable_cue-close">
                     Hide full description
-                    <span class="cf-icon cf-icon-minus-round"></span>
-               </span>
+                    {{ svg_icon('plus-minus') }}
             </a>
         </div>
 
