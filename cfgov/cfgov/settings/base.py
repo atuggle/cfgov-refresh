@@ -610,6 +610,10 @@ FLAGS = {
     # To be enabled when owning-a-home/explore-rates is de-sheered.
     'OAH_EXPLORE_RATES': {},
 
+     # When enabled, adds ability for rate-checker to use
+     # geolocation for drop down.
+    'OAH_EXPLORE_RATES_GEO': {},
+
     # To be enabled when owning-a-home/closing-disclosure/
     # and owning-a-home/loan-estimate/ are de-sheered.
     'OAH_FORM_EXPLAINERS': {},

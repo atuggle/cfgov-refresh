@@ -20,6 +20,7 @@
     "date-format": "0.0.2",
     "fastdom": "1.0.6",
     "format-usd": "0.2.0",
+    "fuzzy-state-search": "^0.1.0",
     "handlebars": "^4.0.11",
     "handlebars-loader": "git+https://github.com/Waavi/handlebars-loader.git",
     "highcharts": "5.0.11",

@@ -62,7 +62,7 @@ const COMMON_CHUNK_CONFIG = new webpack.optimize.SplitChunksPlugin( {
 const conf = {
   cache: true,
   module: COMMON_MODULE_CONFIG,
-  mode: 'production',
+  mode: 'development',
   output: {
     filename: '[name]',
     jsonpFunction: 'oah'

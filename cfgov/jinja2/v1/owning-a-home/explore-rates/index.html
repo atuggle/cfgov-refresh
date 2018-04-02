@@ -43,7 +43,9 @@ home price, down payment, and more can affect mortgage interest rates.
         </nav>
     </div>
     <div class="content_wrapper">
-        <div class="rate-checker content_main u-pb0">
+        <div class="rate-checker
+                    {%if flag_enabled('OAH_EXPLORE_RATES_GEO', request) %} rate-checker__geo-flag {% else %} '' {%endif %}
+                    content_main u-pb0">
             <div class="result">
                 <section class="page-intro content-l">
                     <div class="content-l_col content-l_col-2-3">
