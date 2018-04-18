@@ -1,3 +1,4 @@
+import "babel-polyfill";
 import { track } from './util/analytics-util';
 
 const HashURLListener = ( function() {

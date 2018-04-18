@@ -1,3 +1,4 @@
+import "babel-polyfill";
 import { track } from './util/analytics-util';
 
 const waitO = setInterval( _attachListener, 1000 );

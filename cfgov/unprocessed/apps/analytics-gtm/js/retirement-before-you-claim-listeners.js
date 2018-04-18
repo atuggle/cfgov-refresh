@@ -1,3 +1,4 @@
+import "babel-polyfill";
 // TODO: Remove jquery.
 import $ from 'jquery';
 

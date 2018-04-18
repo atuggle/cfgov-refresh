@@ -1,3 +1,4 @@
+import "babel-polyfill";
 import { hostsAreEqual } from './util/analytics-util';
 
 /* ********************************

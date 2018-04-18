@@ -31,14 +31,14 @@ const COMMON_MODULE_CONFIG = {
 
     /* The below regex will capture all node modules that start with `cf`
       or atomic-component. Regex test: https://regex101.com/r/zizz3V/1/. */
-    exclude: /node_modules\/(?:cf.+|atomic-component)/,
+    exclude: /node_modules/,
     use: {
       loader: 'babel-loader?cacheDirectory=true',
       options: {
         presets: [ [ 'babel-preset-env', {
           configPath: __dirname,
-          useBuiltIns: 'usage',
-          debug: false
+          useBuiltIns: 'entry',
+          debug: true
         } ] ]
       }
     }
@@ -59,9 +59,6 @@ const conf = {
     filename: '[name]',
     jsonpFunction: 'analyticsGtm'
   },
-  plugins: [
-    COMMON_UGLIFY_CONFIG
-  ],
   stats: STATS_CONFIG.stats
 };
 

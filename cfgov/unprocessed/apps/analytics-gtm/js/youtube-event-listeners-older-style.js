@@ -1,3 +1,4 @@
+import "babel-polyfill";
 import { analyticsLog } from './util/analytics-util';
 
 /* LunaMetrics Google Analytics YouTube Tracking
