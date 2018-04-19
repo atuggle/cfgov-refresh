@@ -129,29 +129,13 @@ Then( /the (.*) field (should|shouldn't) contain the class (.*)/,
 );
 
 Then( 'the first option should be highlighted',
-  function() {
-    function _getfirstElementText() {
+  async function() {
+    const firstElementText = await multiSelect.getDropDownLabelElements()
+                             .first().getText();
+    const activeElementValue = await browser.driver.switchTo().activeElement()
+                             .getAttribute( 'value' );
 
-      return multiSelect.getDropDownLabelElements()
-        .first()
-        .getText();
-    }
-
-    function _getActiveElementValue() {
-
-      return browser
-        .driver
-        .switchTo()
-        .activeElement()
-        .getAttribute( 'value' );
-    }
-
-    return Promise.all( [ _getfirstElementText(), _getActiveElementValue() ] )
-      .then( function( [ firstElementText, activeElementValue ] ) {
-
-        return expect( firstElementText )
-          .to.equal( activeElementValue );
-      } );
+    return expect( firstElementText ).to.equal( activeElementValue );
   }
 );
 
