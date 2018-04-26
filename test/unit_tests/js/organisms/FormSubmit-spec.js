@@ -18,8 +18,7 @@ const HTML_SNIPPET = `
       <div class="u-mb15">
         <div class="m-notification
                     m-notification__success">
-          <span class="m-notification_icon
-                       cf-icon"></span>
+          <svg class="cf-icon-svg"></svg>
           <div class="m-notification_content">
             <div class="h4 m-notification_message"></div>
           </div>

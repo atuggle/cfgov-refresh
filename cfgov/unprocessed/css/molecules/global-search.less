@@ -104,6 +104,8 @@
     }
 
     &_trigger {
+        .u-webfont-medium();
+
         // Resets for default button styles.
         background-color: transparent;
         border: none;
@@ -112,14 +114,20 @@
         box-sizing: border-box;
         border-left: 1px solid transparent;
 
+        .respond-to-max( @bp-xs-max, {
+            font-size: unit( @size-iv / @base-font-size-px, em );
+        } );
+
         &:focus {
             outline: 1px dotted @black;
         }
 
-        &:before {
-            .cf-icon();
+        &-open-label {
+            vertical-align: text-top;
+        }
 
-            content: @cf-icon-search;
+        &-close-label {
+            display: none;
         }
 
         // Only show trigger if we have JS.
@@ -170,17 +178,16 @@
             height: unit( @mobile_trigger_ht__px / @base-font-size-px, em );
             min-width: unit( @mobile_trigger_ht__px / @base-font-size-px, em );
 
-            &:before {
-                font-size: unit( 20px / 16px, em );
-            }
-
             &[aria-expanded="true"] {
                 background: @gray-10;
                 border-left: 1px solid @gray-40;
 
-                // Show "X" icon when flyout is open.
-                &:before {
-                    content: @cf-icon-delete;
+                .m-global-search_trigger-open-label {
+                    display: none;
+                }
+
+                .m-global-search_trigger-close-label {
+                    display: block;
                 }
             }
         }
@@ -204,15 +211,6 @@
                 border-top: 1px solid @gray-40;
                 border-bottom: 1px solid @gray-40;
             }
-        }
-    } );
-
-    // Tablet and above.
-    .respond-to-min( @bp-sm-min, {
-        // Add "Search" text in trigger.
-        &_trigger-label:before {
-            content: 'Search';
-            font-weight: 500;
         }
     } );
 
