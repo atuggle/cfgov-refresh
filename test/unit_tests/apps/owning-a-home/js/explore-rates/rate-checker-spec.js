@@ -2,8 +2,9 @@ const BASE_JS_PATH = '../../../../../../cfgov/unprocessed/apps/owning-a-home/';
 const rateChecker = require( BASE_JS_PATH + 'js/explore-rates/rate-checker' );
 
 import { simulateEvent } from '../../../../../util/simulate-event';
-const createXHRMock = require( '../../../../../util/mock-xhr' );
-let xhrMock;
+const axios = require( 'axios' );
+
+jest.mock('axios');
 
 const HTML_SNIPPET = `
   <div class="rate-checker">
@@ -155,10 +156,6 @@ let rateStructureDom;
 let armTypeDom;
 
 describe( 'explore-rates/rate-checker', () => {
-  beforeAll( () => {
-    xhrMock = createXHRMock();
-  } );
-
   describe( 'init()', () => {
     beforeEach( () => {
       document.body.innerHTML = HTML_SNIPPET;

@@ -78,6 +78,8 @@
   },
   "devDependencies": {
     "ansi-colors": "1.1.0",
+    "axios": "0.18.0",
+    "axios-mock-adapter": "1.15.0",
     "babel-jest": "22.4.3",
     "chai": "4.1.2",
     "chai-as-promised": "7.1.1",
@@ -87,6 +89,7 @@
     "jasmine-spec-reporter": "4.2.1",
     "jest": "22.4.3",
     "jest-cli": "22.4.3",
+    "jest-mock-axios": "2.1.11",
     "jsdoc": "3.5.5",
     "marked": "0.3.9",
     "merge-stream": "1.0.1",
