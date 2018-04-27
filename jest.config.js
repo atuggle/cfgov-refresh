@@ -5,11 +5,14 @@ module.exports = {
     '^.+\\.hbs$': '<rootDir>/test/util/preprocessor-handlebars.js'
   },
   collectCoverage: true,
+  testURL: 'https://www.consumerfinance.gov/',
   collectCoverageFrom: [
     '<rootDir>/cfgov/unprocessed/**/*.js'
   ],
   coveragePathIgnorePatterns: [
+    '<rootDir>/collectstatic/',
     '<rootDir>/node_modules/',
+    '<rootDir>/cfgov/unprocessed/apps/.+/node_modules/',
     '<rootDir>/cfgov/unprocessed/apps/.+/webpack-config.js$',
     '<rootDir>/cfgov/unprocessed/apps/.+/index.js$',
     '<rootDir>/cfgov/unprocessed/js/routes/'

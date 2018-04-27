@@ -1,34 +1,41 @@
 const BASE_JS_PATH = '../../../../../../cfgov/unprocessed/apps/owning-a-home/';
 const domLoader = require( BASE_JS_PATH + 'js/explore-rates/data-loader' );
+const axios = require( BASE_JS_PATH + 'node_modules/axios' );
 
-const axios = require('axios');
-const MockAdapter = require('axios-mock-adapter');
+const today = new Date();
+const decache = String( today.getDate() ) + today.getMonth();
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
+const cancelToken = new CancelToken( function(){} );
 
 describe( 'explore-rates/data-loader', () => {
-  xdescribe( 'getData()', () => {
+  describe( 'getData()', () => {
     it( 'should call data API with correct query', () => {
+      jest.spyOn( axios, 'get' );
       domLoader.getData();
 
-      expect( mockAxios.get )
-        .toHaveBeenCalledWith( 'GET', '/oah-api/rates/rate-checker?decache=243', true );
-      expect( mockAxios.send ).toBeCalled();
+      return expect( axios.get )
+        .toHaveBeenCalledWith(
+          '/oah-api/rates/rate-checker',
+          { params: { decache: decache, cancelToken: cancelToken } }
+        );
     } );
   } );
 
   describe( 'getCounties()', () => {
-    it( 'should call county API with correct state query', done => {
+    it( 'should call county API with correct state query', async () => {
+      jest.mock( BASE_JS_PATH + 'node_modules/axios' );
 
-      const mock = new MockAdapter(axios);
-      const data = { response: true };
-      mock.onGet(
-        '/oah-api/county/',
-        { params: { state: 'AL' } }
-      ).reply( 200, data );
+      const data = { state:          'AL',
+                     loan_type:      'CONF',
+                     minfico:        700,
+                     maxfico:        719,
+                     rate_structure: 'FIXED'
+                  };
+      axios.get.mockResolvedValue( data );
 
-      domLoader.getCounties( 'AL' ).promise.then( response => {
-          expect( response ).toEqual( data );
-          done();
-      } );
+      const response = await domLoader.getCounties( 'AL' ).promise;
+      return expect( response ).toEqual( data );
     } );
   } );
 } );

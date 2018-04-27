@@ -2,9 +2,9 @@ const BASE_JS_PATH = '../../../../../../cfgov/unprocessed/apps/owning-a-home/';
 const rateChecker = require( BASE_JS_PATH + 'js/explore-rates/rate-checker' );
 
 import { simulateEvent } from '../../../../../util/simulate-event';
-const axios = require( 'axios' );
+const axios = require( BASE_JS_PATH + 'node_modules/axios' );
 
-jest.mock('axios');
+jest.mock( BASE_JS_PATH + 'node_modules/axios' );
 
 const HTML_SNIPPET = `
   <div class="rate-checker">
