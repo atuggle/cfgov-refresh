@@ -658,11 +658,6 @@ FLAGS = {
         'site': 'beta.consumerfinance.gov:443',
     },
 
-    # Teacher's Digital Platform Search Interface Tool
-    'TDP_SEARCH_INTERFACE': {
-        'site': 'beta.consumerfinance.gov:443',
-    },
-
     # Turbolinks is a JS library that speeds up page loads
     # https://github.com/turbolinks/turbolinks
     'TURBOLINKS': {},
